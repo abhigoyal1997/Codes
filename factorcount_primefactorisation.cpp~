@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+#include <map>
+
+using namespace std;
+const int N=1000000;
+
+vector<bool> isprime(N,1);
+vector<int> prime(1,2);
+
+int ndiv(int n){
+	map<int,int> pfactor;
+	for(int i=0; prime[i]<=n; i++) while(n%prime[i]==0){
+		pfactor[prime[i]]++; n/=prime[i];
+	}
+	int d=1;
+	for(map<int,int>::iterator i=pfactor.begin(); i!=pfactor.end(); i++) d*=((i->second)+1);
+	return d;
+}
+
+int main(){
+	int p=2;
+	while(1){
+		int i=2*p;
+		while(i<N){
+			isprime[i]=0; i+=p;
+		}
+		p++;
+		while(!isprime[p]){
+			p++;
+			if(p==N) break;
+		}
+		if(p==N) break;
+		prime.push_back(p);
+	}
+
+	while(1){
+		int n; cin >> n;
+		
+		cout << ndiv(n) << endl;
+	}
+}
