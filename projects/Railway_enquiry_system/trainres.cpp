@@ -146,7 +146,7 @@ void schedule(){
 	}
 	system("clear");
 	t[tn].printsch();
-	cout << "Enter any key to return\n";
+	cout << "Enter any character to return\n";
 	char c; cin >> c;
 	return;
 }
@@ -218,7 +218,7 @@ void tkt_cancel(){
 	}
 	if(query==1){
 		tkt[pnr].tkt_print();
-		cout << "\nEnter 1 if you want to cancel this ticket or any other key to return: ";
+		cout << "\nEnter 1 if you want to cancel this ticket or any other character to return: ";
 		int q; cin >> q;
 		if(q!=1) return;
 	}
@@ -244,7 +244,7 @@ void tkt_cancel(){
   		t[tkt[pnr].train].coach[tkt[pnr].coach].seat[tkt[pnr].days][tkt[pnr].seat].ocpd[i]=0;
   	}
   	tkt.erase(pnr); active.ticket.erase(it);
-	cout << "\nYour ticket is succesfully canceled\nYour new account balance is: " << active.update_balance(refund) << "\nEnter any key to return: ";
+	cout << "\nYour ticket is succesfully canceled\nYour new account balance is: " << active.update_balance(refund) << "\nEnter any character to return: ";
 	char x; cin >>x;
 }
 
@@ -272,10 +272,10 @@ void run_enquiry(){
 		valid=0; goto invalid;
 	}
 	if(t_day==t[tnum].station[t[tnum].nstops-1].day && current_time>t[tnum].station[t[tnum].nstops-1].t){//checks if the train has already reached its destination
-		cout << "\nThe train has reached the destination \nEnter any key to return\n"; char q; cin >> q; return;
+		cout << "\nThe train has reached the destination \nEnter any character to return\n"; char q; cin >> q; return;
 	}
 	if(t_day==1 && t[tnum].station[0].t>current_time){//checks if the train har departed or not
-		cout << "\nThe train has not yet departed from the source \nEnter any key to return\n"; char q; cin >> q; return;
+		cout << "\nThe train has not yet departed from the source \nEnter any character to return\n"; char q; cin >> q; return;
 	}
 	for(i=1; i<t[tnum].nstops; i++){
 		if(t[tnum].station[i].day==t_day && t[tnum].station[i].run[day] && t[tnum].station[i].t>current_time){
@@ -289,7 +289,7 @@ void run_enquiry(){
 	}
 
   invalid:	if(!valid){
-		cout << "\nInvalid enquiry \nEnter 1 to try again"; char ch; cin >> ch;
+		cout << "\nInvalid enquiry \nEnter 1 to try again: "; char ch; cin >> ch;
 		if(ch=='1') goto enter_trainnum;
 		else return;
 	}
@@ -327,7 +327,7 @@ void run_enquiry(){
 	temp.h+=24*(next_day-day);
 	temp=temp-current_time; temp.print();
 
-	cout << "\n\nEnter any key to return\n"; char x; cin >> x;
+	cout << "\n\nEnter any character to return\n"; char x; cin >> x;
 }
 
 void order_food(){
@@ -368,13 +368,13 @@ void order_food(){
 	}
 
     if(active.update_balance(0)<cost){
-        cout<<endl<<"Not enough balance. Please contact admin to recharge your account.(Press any key to go to main menu.) :";
+        cout<<endl<<"Not enough balance. Please contact admin to recharge your account.(Enter any character to go to main menu.) :";
         char temp; cin>>temp; return;
     }
 
 
     cout<<endl<<"Food will be delivered soon. Your balance after deduction is: " << active.update_balance(-1*cost);
-    cout << "\nEnjoy the journey! (Press any key to go to main menu.) :";
+    cout << "\nEnjoy the journey! (Enter any character to go to main menu.) :";
     active.store_balance();
 
     char temp; cin>>temp; return;
