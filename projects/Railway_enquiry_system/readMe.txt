@@ -1,4 +1,4 @@
-In our project, we have imitated the official ticket reservation website of Indian railways. This program can be actually be used as an enquiry machine, because it saves the data even after exiting the program.
+In this project, we have imitated the official ticket reservation website of Indian railways. This program can be actually be used as an enquiry machine, because it saves the data even after exiting the program.
 
 
 Instructions to run:-
