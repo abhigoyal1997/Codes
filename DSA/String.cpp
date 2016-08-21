@@ -45,7 +45,7 @@ public:
 	}
 
 	String& operator=(const char* str){// assignment using const char array
-		delete ptr;
+		delete[] ptr;
 		ptr = new char[len(str)+1];
 		scopy(ptr, str);
 		return *this;
@@ -53,9 +53,7 @@ public:
 
 	String& operator=(const String& s){// assignment  using another string
 		if(ptr==s.ptr) return *this;
-		delete ptr;
 		*this = s.ptr;
-		next = s.next;
 		return *this;
 	}
 
@@ -93,6 +91,17 @@ public:
 			i++;
 		}
 		if(len(ptr)<len(s.ptr)) return 1;
+		return 0;
+	}
+
+	bool operator>(const String& s){// returns true if the string comes alphabetically after another string(passed as argument)
+		int i=0;
+		while(ptr[i]!='\0' && s.ptr[i]!='\0'){
+			if(ptr[i]<s.ptr[i]) return 0;
+			if(ptr[i]>s.ptr[i]) return 1;
+			i++;
+		}
+		if(len(ptr)>len(s.ptr)) return 1;
 		return 0;
 	}
 
