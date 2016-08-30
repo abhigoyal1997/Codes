@@ -1,0 +1,1 @@
+This program is a simple implementation of collaborative filtering to suggest a user 3 movies (not already watched by him) he is most likely to enjoy. The suggestions are computed based on the ratings the user give to the movies he has already watched and the ratings other users give to the same movies and to the movies user has not watched yet.
