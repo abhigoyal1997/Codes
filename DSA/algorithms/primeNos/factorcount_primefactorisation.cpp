@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cstdio>
 #include <vector>
 #include <map>
 #include <cstdlib>
@@ -42,22 +42,22 @@ int main(){
 
 	while(1){
 		int n; 
-		cout << "Enter a positive integer: ";
-		cin >> n;
+		printf("Enter a positive integer: ");
+		scanf("%i",&n);
 		if(n<=0){
-			cout << "Please enter a positive integer only." << endl;
+			printf("Please enter a positive integer only.\n");
 			continue;
 		}
 		map<int,int> p=pfactor(n);
-		cout << "Prime Factorisation: ";
+		printf("Prime Factorisation: ");
 		for(map<int,int>::iterator i=p.begin(); i!=p.end();i++){
 			int j=i->second;
-			while(j--) cout << i->first << " ";
+			while(j--) printf("%i ",i->first);
 		}
-		cout << endl;
-		cout << "Total no. of factors on n are: " << ndiv(p) << endl;
-		cout << "Do u want to continue?(enter y if yes)\n";
-		char ch; cin >> ch;
+		printf("\n");
+		printf("Total no. of factors on n are: %i\n", ndiv(p));
+		printf("Do u want to continue?(enter y if yes)\n");
+		char ch; scanf(" %c",&ch);
 		if(ch!='y' && ch!='Y') break;
 	}
 }

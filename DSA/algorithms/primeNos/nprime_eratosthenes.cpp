@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cstdio>
 #include <vector>
 #include <bitset>
 
@@ -26,9 +26,9 @@ int main(){
 		prime.push_back(p);
 	}
 
-	int t; cin >> t;
+	int t; scanf("%i",&t);
 	while(t--){
-		long long n; cin >> n;
-		cout << prime[n-1] << endl;
+		long long n; scanf("%lli",&n);
+		printf("%lli\n",prime[n-1]);;
 	}
 }
