@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const long long MOD = 1000000000000000;
+const long long MOD = 1000000007;
 
 long long** T;
 

@@ -21,6 +21,5 @@ int main(){
 		fib[0]=0; fib[1]=1;
 		cin >> n;
 		cout << fibonacci(n) << endl;
-		cout << i << endl;
 	}while(n!=-1);
 }

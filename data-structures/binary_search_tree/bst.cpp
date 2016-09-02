@@ -16,12 +16,15 @@ void BST::insertNode(BSTNode*& node, int n){
     if(node == NULL){
         node = new BSTNode;
         node->data = n;
+        node->size = 1;
     }
     else if(node->data > n){
         insertNode(node->left, n);
+        node->size++;
     }
     else if(node->data < n){
         insertNode(node->right, n);
+        node->size++;
     }
 }
 

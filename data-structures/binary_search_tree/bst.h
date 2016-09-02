@@ -9,6 +9,7 @@ private:
     struct BSTNode
     {
         int data;           // value in node is of type int
+        int size;
         BSTNode* left;
         BSTNode* right;
     };
