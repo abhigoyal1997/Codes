@@ -1,4 +1,4 @@
-#include <iostream>
+#include <stdio.h>
 
 using namespace std;
 
@@ -34,14 +34,14 @@ int main(){
 	T[0][0]=1; T[0][1]=1; T[1][0]=1; T[1][1]=0;
 	long long n;
 	while(1){
-		cin >> n;
+		scanf("%lli",&n);
 		if(n<0) break;
 		if(n==0){
-			cout << "0" << endl; continue;
+			printf("0\n"); continue;
 		}
 		if(n==1){
-			cout << "1" << endl; continue;
+			printf("1\n"); continue;
 		}
-		cout << mat_exp(n-1)[0][0] << endl;
+		printf("%lli\n",mat_exp(n-1)[0][0]);
 	}
 }
