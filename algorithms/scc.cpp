@@ -2,19 +2,17 @@
 #include <set>
 #include <stack>
 #include <vector>
-#include <algorithm>
-#include <map>
 using namespace std;
 
 class Graph{
 	int size;
 	set<int>* vertex;
 	stack<int> order;
-	map<int,int> sccmap;
+	int* scc;
 
 	void dfsNode(int n, bool v[], int sccn){
 		v[n] = 1;
-		sccmap[n] = sccn;
+		scc[n] = sccn;
 		for(set<int>::iterator it = vertex[n].begin(); it!=vertex[n].end(); it++)
 			if(!v[*it]) dfsNode(*it,v,sccn);
 	}
@@ -29,13 +27,16 @@ public:
 	Graph(){
 		size = 0;
 		vertex = NULL;
+		scc = NULL;
 	}
 	Graph(int n){
 		size = n;
 		vertex = new set<int>[n];
+		scc = new int[n];
 	}
 	~Graph(){
-		//todo
+		delete[] vertex;
+		delete[] scc;
 	}
 	
 	void addEdge(int a, int b){
@@ -69,11 +70,11 @@ public:
 				sccn++;
 			}
 		}
-		sccmap = gt.sccmap;
+		for(int i=0; i!=size; i++) scc[i]=gt.scc[i];
 	}
 
 	bool isSC(int a,int b){
-		return sccmap[a]==sccmap[b];
+		return scc[a]==scc[b];
 	}
 };
 
