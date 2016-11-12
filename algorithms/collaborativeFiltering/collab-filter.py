@@ -68,7 +68,7 @@ def weightRating(i):										##################################################
 			return (0,0)									# (rating by a user-his average rating)(if it is rated) and his   # 
 															# correlation coefficient with the user.                          # 
 															#                												  #
-															# Finally we divide this sigma with the sum of the absolute values# 
+															# Finally  divide this sigma with the sum of the absolute values  
 															# of the correlations of the critics taken into account.		  #									  
 		else:												#																  #
 			return (x[0]*(x[1][i]-mean(x[1])),abs(x[0]))	###################################################################
